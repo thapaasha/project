@@ -1,6 +1,5 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import Body from "../components/Body";
 import { Outlet } from "react-router-dom";
 import App from "../App";
 const BaseLayout = () => {
@@ -9,7 +8,9 @@ const BaseLayout = () => {
       <div>
         <Header />
       </div>
-
+      <div className="flex-grow">
+        <Outlet />
+      </div>
       <div className="mt-auto bg-header text-white">
         <Footer />
       </div>
