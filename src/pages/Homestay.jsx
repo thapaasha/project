@@ -16,7 +16,7 @@ export default function Card() {
     <div className="flex-col justify-center">
       <div className=" flex justify-between border 2px solid black m-3 mt-5 p-8 rounded-xl relative">
         <div>
-          <h1 className="font-semibold">Homestay</h1>
+          <h1 className="font-semibold mb-1">Homestay</h1>
           <input
             type="search"
             placeholder="Search the homestay..."
