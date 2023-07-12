@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CardData from "../components/CardData";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 export default function Card() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,26 +14,28 @@ export default function Card() {
   };
 
   return (
-    <div className="flex-col justify-center">
-      <div className=" flex justify-between border 2px solid black m-3 mt-5 p-8 rounded-xl relative">
+    <div className=" sm: px-[0.5rem] md:py-3 px-[0.5rem] lg: py-5 px-[5rem] relative ">
+      <div className="m-2rem px-8 py-6 border 2px solid black rounded-md sm:flex flex-row-2 space-y-3 md:flex flex-col-2 justify-between ">
         <div>
           <h1 className="font-semibold mb-1">Homestay</h1>
-          <input
-            type="search"
-            placeholder="Search the homestay..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          ></input>
+          <div>
+            <input
+              type="search"
+              placeholder="Search the homestay..."
+              value={searchTerm}
+              className="rounded-xl focus:outline-none focus:ring-0 "
+              onChange={(e) => setSearchTerm(e.target.value)}
+            ></input>
+          </div>
         </div>
 
-        <div>
-          <button
-            type="button"
-            onClick={handleSearch}
-            className="right-5 absolute"
-          >
-            Search
-          </button>
+        <div className="flex gap-2 items-center">
+          <MagnifyingGlassIcon class="h-6 w-6 text-gray-500" />
+          <div>
+            <button type="button" onClick={handleSearch} className=" ">
+              Search
+            </button>
+          </div>
         </div>
       </div>
 

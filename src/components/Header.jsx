@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { useState, useEffect } from "react";
-import { Drawer } from "flowbite";
+import { Sidebar } from "flowbite-react";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +32,7 @@ export default function Header() {
         {isMobile ? (
           <Bars3Icon class="h-6 w-6 text-gray-500" onClick={toggleDrawer} />
         ) : (
-          <div className="flex justify-center gap-4">
+          <div className="flex justify-between bg-header w-full text-white gap-[3rem]">
             <div className="flex gap-4">
               <Link to="/">Home</Link>
               <Link to="/homestay">Homestay</Link>
@@ -40,31 +40,40 @@ export default function Header() {
             </div>
 
             <div className=" flex gap-4 ">
-              <button className="ml-auto">Register</button>
-              <button>Login</button>
+              <Link to="/register" className="ml-auto">
+                Register
+              </Link>
+              <Link to="/login">Login</Link>
             </div>
           </div>
         )}
       </div>
 
       {isMobile && isOpen && (
-        <Drawer
-          placement="right"
-          open={isOpen}
-          onClose={toggleDrawer}
-          className="w-64"
-        >
-          <div className="flex flex-col gap-4">
-            <Link to="/">Home</Link>
-            <Link to="/homestay">Homestay</Link>
-            <Link to="/location">Location</Link>
-          </div>
+        <Sidebar aria-label="Default sidebar example">
+          <Sidebar.Items>
+            <Sidebar.ItemGroup>
+              <Sidebar.Item>
+                <div className="relative min-h-screen">
+                  <div className="absolute top-0 left-0 h-full w-64 bg-header text-white">
+                    <div className="flex flex-col">
+                      <Link to="/">Home</Link>
+                      <Link to="/homestay">Homestay</Link>
+                      <Link to="/location">Location</Link>
+                    </div>
 
-          <div className="flex gap-4">
-            <button className="ml-auto">Register</button>
-            <button>Login</button>
-          </div>
-        </Drawer>
+                    {/* <div className=" flex gap-4  ">
+                      <Link to="/register" className="ml-auto">
+                        Register
+                      </Link>
+                      <Link to="/login">Login</Link>
+                    </div> */}
+                  </div>
+                </div>
+              </Sidebar.Item>
+            </Sidebar.ItemGroup>
+          </Sidebar.Items>
+        </Sidebar>
       )}
     </div>
   );
